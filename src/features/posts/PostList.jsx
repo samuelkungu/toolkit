@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux'
+import { selectAllUsers } from '../users/userSlice';
 import PostAuthor from './PostAuthor';
 import ReactionButtons from './ReactionButtons';
 import TimeAgo from './TimeAgo';
 
 const PostList = () => {
-    const posts = useSelector(state => state.posts);
+    const posts = useSelector(selectAllUsers);
 
     const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
 
