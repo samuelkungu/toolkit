@@ -1,9 +1,11 @@
 import './app.scss';
-import PostList from './features/PostList'
+import AddPostForm from './features/posts/AddPostForm';
+import PostList from './features/posts/PostList'
 
 function App() {
   return (
     <div className="App">
+      <AddPostForm />
       <PostList />
     </div>
   );
