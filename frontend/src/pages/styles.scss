@@ -54,6 +54,10 @@
                     font-weight: 500;
                     cursor: pointer;
                 }
+
+                .btn:hover {
+                    transform: scale(0.98);
+                }
             }
         }
     }
