@@ -1,18 +1,30 @@
-.register {
+.auth {
+    display: flex;
+    justify-content: center;
 
     span {
         margin: 2px;
     }
 
+    p {
+        font-size: 1.1em;
+    }
+
     .container {
         max-width: 1024px;
         width: 100%;
-
+        display: flex;
+        align-items: center;
+        flex-direction: column;
 
         .form {
-            display: flex;
-            flex-direction: column;
+            padding: 10px;
             width: 40%;
+
+            .heading {
+                margin: 20px 0px 0px 0px;
+                font-weight: 600;
+            }
 
             .form-group {
                 display: flex;

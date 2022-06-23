@@ -26,16 +26,13 @@ function Register() {
 
 
     return (
-        <div className="register">
-            <section className="heading">
-                <h1>
-                    <span><FaUser /></span>
-                    <span>Register</span>
-                </h1>
-                <p>Create an account</p>
-            </section>
-            <section className="container">
+        <div className="auth">
+            <div className="container">
                 <form className="form" onSubmit={onSubmit}>
+                    <div className="heading">
+                        <h1> <span><FaUser /></span> <span>Register</span> </h1>
+                        <p>Create an account</p>
+                    </div>
                     <div className="form-group">
                         <label className="label">Username</label>
                         <input type="text" className="form-control" id="name" name="name"
@@ -60,7 +57,7 @@ function Register() {
                         <button className="btn" type="submit"> Submit </button>
                     </div>
                 </form>
-            </section>
+            </div>
         </div>
     )
 }
