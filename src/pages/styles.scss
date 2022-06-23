@@ -1,0 +1,21 @@
+.posts {
+    display: flex;
+
+    .line {
+        flex: 0.1;
+        background-color: white;
+    }
+
+    .form {
+        flex: 30;
+        padding: 0 5% 5%;
+        position: sticky;
+
+    }
+
+    .list {
+        flex: 40;
+        padding: 0 5% 5%;
+        position: relative;
+    }
+}
