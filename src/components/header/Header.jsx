@@ -11,10 +11,13 @@ function div() {
                 </div>
                 <ul>
                     <li className="item">
-                        <Link className='link' to='/login' >  <FaSignInAlt /> <span> Login </span></Link>
+                        <Link className='link' to='/posts' >  <FaSignInAlt /> Posts </Link>
                     </li>
                     <li className="item">
-                        <Link className='link' to='/login' >  <FaUser /> <span> Register </span> </Link>
+                        <Link className='link' to='/login' >  <FaSignInAlt /> Login </Link>
+                    </li>
+                    <li className="item">
+                        <Link className='link' to='/register' >  <FaUser /> Register  </Link>
                     </li>
                 </ul>
             </div>
