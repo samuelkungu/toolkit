@@ -1,5 +1,5 @@
 const Post = require('../models/post.model')
-
+const errorHandler = require('../middleware/errorMiddleware')
 async function createPost(req, res) {
     const newPost = new Post(req.body)
     try {

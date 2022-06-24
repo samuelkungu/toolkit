@@ -22,7 +22,7 @@ async function deleteUser(req, res) {
     }
 };
 
-async function getUser(req, res) {
+async function getUser(req, res, next) {
     try {
         const user = await User.findById(req.params.id)
         res.status(200).json(user)
