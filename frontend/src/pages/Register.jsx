@@ -1,6 +1,12 @@
-import { useState } from "react";
-import { FaUser } from "react-icons/fa";
 import "./styles.scss"
+import { useEffect, useState } from "react";
+import { FaUser } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { register, reset, selectAllAuth } from "../features/auth/authSlice";
+import { toast } from "react-toastify";
+import Spinner from "../components/spinner/Spinner";
+
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -12,6 +18,20 @@ function Register() {
 
     const { name, email, password, password2 } = formData;
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const { user, isLoading, isError, isSuccess, message } = useSelector(selectAllAuth);
+
+    useEffect(() => {
+        if (isError) { toast.error(message) }
+        if (isSuccess || user) {
+            navigate('/')
+        }
+        dispatch(reset())
+    }, [user, message, isError, isSuccess, navigate, dispatch])
+
+
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState, [e.target.name]: e.target.value,
@@ -20,10 +40,17 @@ function Register() {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        if (password !== password2) {
+            toast.error('Passwords do not match')
+        } else {
+            const userData = { name, email, password, }
+            dispatch(register(userData))
+        }
         console.log(formData);
     };
 
 
+    if (isLoading) { return <Spinner /> }
 
     return (
         <div className="auth">
