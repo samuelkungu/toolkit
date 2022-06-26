@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 import "./styles.scss"
+>>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
 import { useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +10,10 @@ import { register, reset, selectAllAuth } from "../features/auth/authSlice";
 import { toast } from "react-toastify";
 import Spinner from "../components/spinner/Spinner";
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
 function Register() {
     const [formData, setFormData] = useState({
         name: '',
@@ -18,13 +24,24 @@ function Register() {
 
     const { name, email, password, password2 } = formData;
 
+<<<<<<< HEAD
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+=======
     const navigate = useNavigate();
     const dispatch = useDispatch();
+>>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
 
     const { user, isLoading, isError, isSuccess, message } = useSelector(selectAllAuth);
 
     useEffect(() => {
+<<<<<<< HEAD
+        if (isError) {
+            toast.error(message)
+        }
+=======
         if (isError) { toast.error(message) }
+>>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
         if (isSuccess || user) {
             navigate('/')
         }
@@ -33,8 +50,13 @@ function Register() {
 
 
     const onChange = (e) => {
+<<<<<<< HEAD
+        setFormData((prev) => ({
+            ...prev, [e.target.name]: e.target.value,
+=======
         setFormData((prevState) => ({
             ...prevState, [e.target.name]: e.target.value,
+>>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
         }))
     };
 
@@ -49,6 +71,45 @@ function Register() {
         console.log(formData);
     };
 
+<<<<<<< HEAD
+    if (isLoading) { return <Spinner /> }
+
+    return (
+        <>
+            <section className="heading">
+                <h1> <span><FaUser /></span> <span>Register</span> </h1>
+                <p>Create an account</p>
+            </section>
+            <section className="form">
+                <form onSubmit={onSubmit}>
+                    <div className="form-group">
+                        <input type="text" name="name" id="name" placeholder="Enter your username"
+                            className="form-control"
+                            value={name} onChange={onChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input type="text" name="email" id="email" placeholder="Enter your email"
+                            className="form-control" value={email} onChange={onChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input type="password" name="password" id="password" placeholder="Enter your password"
+                            className="form-control" value={password} onChange={onChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <input type="password" name="password2" id="password2" placeholder="Confirm your password"
+                            className="form-control" value={password2} onChange={onChange}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-block" type="submit"> Submit </button>
+                    </div>
+                </form>
+            </section>
+        </>
+=======
 
     if (isLoading) { return <Spinner /> }
 
@@ -86,6 +147,7 @@ function Register() {
                 </form>
             </div>
         </div>
+>>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
     )
 }
 
