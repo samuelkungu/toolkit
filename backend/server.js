@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }));
 
 
 app.use('/api/posts', require('./routes/post.routes'));
+app.use('/api/users', require('./routes/user.routes'));
 app.use(errorHandler);
 
 app.listen(port, () => {
