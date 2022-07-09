@@ -24,10 +24,10 @@ function Login() {
         if (isError) {
             toast.error(message)
         }
-        if (isSuccess || user) {
-            navigate('/')
-        }
-        dispatch(reset())
+        if (isSuccess || user)
+            navigate('/');
+
+        dispatch(reset());
     }, [user, message, isError, isSuccess, navigate, dispatch])
 
 
@@ -42,6 +42,7 @@ function Login() {
         const userData = { email, password }
 
         dispatch(login(userData))
+
     };
 
     if (isLoading) { return <Spinner /> }
