@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
@@ -7,12 +6,6 @@ import PostItem from '../components/postItem/PostItem'
 import Spinner from '../components/spinner/Spinner'
 import { getPosts, selectAllPosts } from '../features/posts/postSlice'
 import { selectAllAuth } from '../features/auth/authSlice'
-=======
-<<<<<<< HEAD
-=======
-import "./styles.scss"
->>>>>>> d416079d90500b6ff2fb6475b82e1649465b8fc3
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
 
 function Dashboard() {
     const navigate = useNavigate()

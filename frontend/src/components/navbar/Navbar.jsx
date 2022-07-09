@@ -13,25 +13,15 @@ function Navbar() {
     const { user } = useSelector(selectAllAuth);
 
     const onLogout = () => {
-<<<<<<< HEAD
         dispatch(logout());
         dispatch(reset());
         navigate('/');
-=======
-        dispatch(logout())
-        dispatch(reset())
-        navigate('/')
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
     }
 
     return (
         <header className="header">
             <div className="logo">
-<<<<<<< HEAD
                 <Link to='/'>Todo App</Link>
-=======
-                <Link to='/'>Text input</Link>
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
             </div>
             <ul>
                 {user ? (

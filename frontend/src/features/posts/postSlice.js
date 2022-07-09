@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import postService from './postService'
 
@@ -51,20 +50,11 @@ export const deletePost = createAsyncThunk(
         }
     }
 )
-=======
-import { createSlice } from "@reduxjs/toolkit";
-
-
-const initialState = {
-
-}
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
 
 export const postSlice = createSlice({
     name: 'post',
     initialState,
     reducers: {
-<<<<<<< HEAD
         reset: (state) => initialState,
     },
     extraReducers: (builder) => {
@@ -114,12 +104,6 @@ export const postSlice = createSlice({
 })
 
 export const { reset } = postSlice.actions
-=======
-
-    }
-})
-
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
 export const selectAllPosts = (state) => state.posts;
 
 export default postSlice.reducer;
