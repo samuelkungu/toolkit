@@ -21,7 +21,11 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.4.0",
+<<<<<<< HEAD
     "nodemon": "^2.0.18",
     "path": "^0.12.7"
+=======
+    "nodemon": "^2.0.18"
+>>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
   }
 }
