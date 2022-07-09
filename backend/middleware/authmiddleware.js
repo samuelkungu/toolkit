@@ -21,7 +21,6 @@ async function protect(req, res, next) {
             token = req.headers.authorization.split(' ')[1]
 
             // Verify token
-<<<<<<< HEAD
             const decoded = jwt.verify(token, process.env.JWT)
 
             // Get user from the token
@@ -31,34 +30,13 @@ async function protect(req, res, next) {
             console.log(error)
             res.status(401)
             throw new Error('Not authorized')
-=======
-            const decoded = jwt.verify(token, process.env.JWT_SECRET)
-
-            // Get user from the token
-            req.user = await User.findById(decoded.id).select('-password')
-            // next()
-        } catch (error) {
-            console.log(error)
-            res.status(401).json('Not authorized')
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
         }
     }
 
     if (!token) {
-<<<<<<< HEAD
         res.status(401)
         throw new Error('Not authorized, no token')
     }
 })
 
 module.exports = { protect }
-=======
-        res.status(401).json('Not authorized, no token')
-    }
-}
-
-
-module.exports = {
-    protect,
-}
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
