@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
 const User = require('../models/user.model')
@@ -6,12 +5,6 @@ const User = require('../models/user.model')
 const protect = asyncHandler(async (req, res, next) => {
     let token
 
-=======
-const jwt = require('jsonwebtoken');
-
-async function protect(req, res, next) {
-    let token
->>>>>>> 6377e52ac40f42de3dfa23095e181d5ea758c094
     if (
         req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer')
