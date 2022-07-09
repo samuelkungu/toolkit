@@ -1,10 +1,8 @@
-import './spinner.scss'
 
 function Spinner() {
     return (
-
-        <div className="spinner-container">
-            <div className="spinner"></div>
+        <div className="loadingSpinnerContainer">
+            <div className="loadingSpinner"></div>
         </div>
     )
 }

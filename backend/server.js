@@ -1,27 +1,36 @@
 const express = require('express');
+const path = require('path');
+const colors = require('colors');
+const { errorHandler } = require('./middleware/errorMiddleware');
+const { connectDB } = require('./config/db');
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 9000;
-const colors = require('colors');
-const mongoose = require('mongoose');
-const { errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
+connectDB();
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
-app.use('/api/posts', require('./routes/posts.routes'));
-app.use('/api/auth', require('./routes/auth.routes'));
-app.use('/api/users', require('./routes/users.routes'));
+app.use('/api/posts', require('./routes/post.routes'));
+app.use('/api/users', require('./routes/user.routes'));
 
-app.use((err, req, res, next) => {
-    console.log("middleware")
-});
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
 
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(console.log("Mongo DB connected")).catch((error) => console.log(error));
+    app.get('*', (req, res) =>
+        res.sendFile(
+            path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+        )
+    );
+} else {
+    app.get('/', (req, res) => res.send('Please set to production'));
+}
+
+app.use(errorHandler);
 
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`)
-})
+    console.log(`Server started on port ${port}`.inverse)
+});
